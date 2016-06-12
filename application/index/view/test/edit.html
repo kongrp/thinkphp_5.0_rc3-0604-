@@ -1,0 +1,14 @@
+{extend name="test:base" /}
+{block name="body"}
+<form method="post" action="{:url('update')}">
+	<input type="hidden" value="{:$user->getData('id')}" name="id"/>
+	<label>姓名</label><input type="text" name="name" value="{:$user->getData('name')}" />
+	<label>email</label><input type="text" name="email" value="{:$user->getData('email')}" /> 
+	<label>性别</label>
+	<select name="sex">
+		<option value="0">男</option>
+		<option value="1" {eq name="user:getData('sex')" value="1"}selected="selected"{/eq}>女</option>}
+	</select>
+	<button class="btn btn-sm btn-primary" type="submit">submit</button>
+</form>
+{/block}
